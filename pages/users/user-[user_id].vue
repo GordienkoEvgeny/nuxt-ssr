@@ -5,6 +5,11 @@ definePageMeta({
 })
 const { user_id } = useRoute().params
 
+
+useHead({
+    title: `id: ${user_id}`,
+})
+
 const { data } = await useFetch(`https://dummyjson.com/users/${user_id}`)
 </script>
 <template>
