@@ -1,5 +1,10 @@
 <script setup>
 const count = useState('count', () => 0)
+
+const { data } = await useFetch('/api/example', {
+    method: 'post',
+    body: {id: 1, name: 'John'}
+})
 </script>
 
 <template>
@@ -8,6 +13,8 @@ const count = useState('count', () => 0)
       <h1>HOME page</h1>
       <p>counter {{ count }}</p>
       <button @click="count++">increment</button>
+
+      <p style="color:black">{{ data.message }}</p>
     </main>
   </div>
 </template>
